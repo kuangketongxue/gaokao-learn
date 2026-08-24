@@ -1,0 +1,32 @@
+{
+  "name": "gaokao-learn",
+  "version": "1.0.1",
+  "description": "Gaokao knowledge points explained from first principles with visual metaphors. 高考知识点精讲：把底层逻辑讲成人人秒懂的画面。",
+  "homepage": "https://crazy-gaokao-tsinghua.pages.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuangketongxue/gaokao-learn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kuangketongxue/gaokao-learn/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "kuangketongxue",
+    "url": "https://github.com/kuangketongxue"
+  },
+  "keywords": [
+    "gaokao",
+    "education",
+    "study-notes",
+    "math",
+    "physics",
+    "chemistry",
+    "static-site",
+    "cloudflare-pages"
+  ],
+  "scripts": {
+    "start": "npx serve .",
+    "preview": "python -m http.server 8000"
+  }
+}
