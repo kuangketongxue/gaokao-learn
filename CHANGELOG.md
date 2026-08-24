@@ -18,10 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Content data architecture: `content.js` holds all chapters as data, `render.js` renders them into `#exploreMount` — adding a chapter no longer requires touching HTML
-- Chapter 05 · Substance classification: LiNbO₃ ionic crystal / SiC covalent network / alloy hardness / He has no chemical bonds
-- Chapter 06 · Distillation purification: ethyl acetate (bp ≈77 °C) evaporate-condense-collect workflow
-- Chapter 07 · Polymer materials: PLA biodegradable disposables
-- Chapter 08 · Sulfur chemistry: Cu + concentrated H₂SO₄; SO₂ decolorizing acidic KMnO₄ via reducing property
+- Chapter 01 · Substance classification: LiNbO₃ ionic crystal / SiC covalent network / alloy hardness / He has no chemical bonds
+- Chapter 02 · Distillation purification: ethyl acetate (bp ≈77 °C) evaporate-condense-collect workflow
+- Chapter 03 · Polymer materials: PLA biodegradable disposables
+- Chapter 04 · Sulfur chemistry: Cu + concentrated H₂SO₄; SO₂ decolorizing acidic KMnO₄ via reducing property
+- Featured banner now auto-follows the latest chapter instead of being hardcoded
 - Bilingual README (English + 中文), CHANGELOG, package.json
 - Repository metadata: description, topics, homepage link
 
@@ -31,7 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial open-source release of the content-only site
 - Single-page layout: hero cover, featured banner, scroll-driven knowledge chapters, methodology cards, home-study tips, CTA
-- Four launch chapters: derivatives (math), force analysis (physics), chemical equilibrium (chemistry), trigonometric functions (math)
 - Light/dark dual theme with flash-free boot and `localStorage` persistence
 - Scroll reveal animations via IntersectionObserver with counter animations
 - GitHub Actions auto-deploy to Cloudflare Pages (`wrangler pages deploy`), concurrency-guarded

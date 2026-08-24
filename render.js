@@ -58,4 +58,21 @@
       '<a class="btn btn-primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书，不错过每一期</a>' +
       '</div>';
   }
+
+  // 今日精选横幅：自动跟随最新一章（数组最后一项），不再硬编码
+  var last = (typeof EXPLORE_CHAPTERS !== 'undefined') ? EXPLORE_CHAPTERS[EXPLORE_CHAPTERS.length - 1] : null;
+  var banner = document.getElementById('featuredBanner');
+  if (banner && last) {
+    // 从正文提取一句短介绍（去标记、取第一句）
+    var dek = String(last.body).replace(/<[^>]+>/g, '').replace(/\s+/g, '');
+    dek = dek.split(/[。；;]/)[0] || '';
+    if (dek.length > 42) dek = dek.slice(0, 40) + '…';
+
+    banner.href = 'https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce';
+    banner.style.setProperty('--tint', 'hsl(' + Number(last.accentHue || 35) + ', 65%, 50%)');
+    var q = function (cls) { return banner.querySelector(cls); };
+    q('.hb-src').textContent = '№ ' + last.id + ' · ' + last.category;
+    q('.hb-title').textContent = last.title.replace(/<[^>]+>/g, '').replace(/\s+/g, '');
+    q('.hb-dek').textContent = dek;
+  }
 })();

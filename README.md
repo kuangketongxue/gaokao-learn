@@ -32,7 +32,7 @@
 
 ## About
 
-Most study materials hand you formulas to memorize. This project does the opposite: every Gaokao knowledge point is broken down to its **first principles**, then rebuilt with a **visual metaphor** — an accelerating car for derivatives, a tug-of-war for force balance — so that understanding, not repetition, does the work.
+Most study materials hand you formulas to memorize. This project does the opposite: every Gaokao knowledge point is broken down to its **first principles**, then rebuilt with a **visual metaphor** — ions attracting like magnets for crystal types, a boiling-point ladder for distillation — so that understanding, not repetition, does the work.
 
 It powers the daily-updated content site **[crazy-gaokao-tsinghua.pages.dev](https://crazy-gaokao-tsinghua.pages.dev/)** (Chinese), synced with video & illustrated notes on Xiaohongshu (RED).
 
@@ -40,18 +40,14 @@ It powers the daily-updated content site **[crazy-gaokao-tsinghua.pages.dev](htt
 
 | Chapters | Subjects | Update cadence | Site stack |
 |---:|---:|---:|---|
-| 8 and growing | Math · Physics · Chemistry | Daily | Pure HTML/CSS/JS, zero build |
+| 4 and growing | Chemistry (more subjects coming) | Daily | Pure HTML/CSS/JS, zero build |
 
 | № | Chapter | Subject | One-line essence |
 |---|---|---|---|
-| 01 | Derivatives | Math | A derivative is not a formula — it is *change happening right now* |
-| 02 | Force analysis | Physics | Every force: decompose first, combine second |
-| 03 | Chemical equilibrium | Chemistry | Equilibrium is not stillness — it is a *stalemate* |
-| 04 | Trigonometric functions | Math | Circular motion projected onto a ruler |
-| 05 | Substance classification | Chemistry | Bond type follows constituent particles, not names |
-| 06 | Distillation purification | Chemistry | Separate by boiling point: evaporate, condense, collect |
-| 07 | Polymer materials | Chemistry | PLA: plastics that nature can digest |
-| 08 | Sulfur chemistry | Chemistry | SO₂ decolorizes KMnO₄ by *reducing* it, not bleaching it |
+| 01 | Substance classification | Chemistry | Bond type follows constituent particles, not names |
+| 02 | Distillation purification | Chemistry | Separate by boiling point: evaporate, condense, collect |
+| 03 | Polymer materials | Chemistry | PLA: plastics that nature can digest |
+| 04 | Sulfur chemistry | Chemistry | SO₂ decolorizes KMnO₄ by *reducing* it, not bleaching it |
 
 <p align="right">(<a href="#about">back to top</a>)</p>
 
