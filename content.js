@@ -3,11 +3,11 @@
 // ─────────────────────────────────────────────────
 // 【怎么加新章节】在 EXPLORE_CHAPTERS 数组末尾复制一段改文字即可：
 //   id        : 章节编号（递增字符串）
-//   category  : "科目 · 主题"，如 "化学 · 晶体结构"
+//   category  : "主题 · 科目"，如 "化学平衡 · 化学"
 //   title     : 大标题，用 <span class="em">…</span> 标强调词，<br> 手动换行
 //   body      : 正文段落，可含 <strong> 强调
 //   dataItems : 底部 3 个要点卡 [{value, label}]
-//   accentHue : 本章主题色相 0-360（橙35/蓝200/绿150/黄45/紫270/红10…）
+//   accentHue : 本章主题色相 0-360（橙35/蓝200/绿150/黄45/紫285/红12…）
 // ============================================================
 
 var EXPLORE_CHAPTERS = [
@@ -94,5 +94,17 @@ var EXPLORE_CHAPTERS = [
       { value: 'CO₂ + H₂O', label: '最终降解产物' }
     ],
     accentHue: 130
+  },
+  {
+    id: '08',
+    category: '硫及其化合物 · 化学',
+    title: '褪色分两种：<br><span class="em">漂白</span>和<span class="em">被氧化</span>。',
+    body: '铜与浓硫酸加热：Cu + 2H₂SO₄(浓) → CuSO₄ + SO₂↑ + 2H₂O，体现浓硫酸的<strong>强氧化性</strong>。<br>SO₂ 使酸性 KMnO₄ 溶液褪色，靠的不是漂白性，而是 <strong>+4 价硫的还原性</strong>——它把 MnO₄⁻ 还原了。',
+    dataItems: [
+      { value: 'Cu→CuSO₄', label: '浓硫酸·强氧化性（需加热）' },
+      { value: 'SO₂→SO₄²⁻', label: '硫升价·表现还原性' },
+      { value: '紫色褪去', label: 'MnO₄⁻ 被 SO₂ 还原' }
+    ],
+    accentHue: 55
   }
 ];
