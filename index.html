@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高考知识点精讲 · 把底层逻辑讲成人人秒懂的画面</title>
+  <meta name="description" content="高考知识点底层逻辑拆解 + 独特提分技巧。小红书日更视频与图文笔记，帮你看懂、记住、用对。" />
+  <meta property="og:title" content="高考知识点精讲 · 把底层逻辑讲成人人秒懂的画面" />
+  <meta property="og:description" content="不是又一份刷题清单。我们用动画和视觉隐喻，把导数、受力分析、化学平衡这些易错点的「为什么」拆给你看。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="高考知识点精讲" />
+  <meta property="og:image" content="https://crazy-gaokao-tsinghua.pages.dev/8bdf52c5-96cc-4855-97a5-a9506e0b8569.jpg" />
+  <link rel="canonical" href="https://crazy-gaokao-tsinghua.pages.dev/" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // 主题闪烁修复：在 CSS 加载前立即设置主题
+    (function(){
+      try {
+        var t = localStorage.getItem('xh-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo">
+        <span class="brand-dot"></span>
+        <span class="brand-sub mono">核心考点 · 智能提分</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">首页</a>
+        <a href="/study/">学习平台</a>
+        <a href="methods.html">教学方法</a>
+        <a href="calculator.html">努力价值计算</a>
+        <a href="checklist.html">每日打卡</a>
+        <a href="changelog.html">更新日志</a>
+        <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub 开源</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <a class="btn-search" href="search.html" title="搜索知识点">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+        </svg>
+        <span>搜索解读…</span>
+      </a>
+      <a class="icon-link" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener" title="小红书">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/>
+          <circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <button class="btn-theme" id="btnTheme" data-theme-toggle title="切换主题">
+        <span class="ico">☀️</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="rise">
+    <!-- Hero：封面图背景 -->
+    <section class="hero hero-cover">
+      <div class="cover-bg" style="background-image: url('8bdf52c5-96cc-4855-97a5-a9506e0b8569.jpg')"></div>
+      <div class="cover-overlay"></div>
+      <div class="wrap-760 cover-content">
+        <div class="eyebrow mono">
+          <span class="pulse"></span>小红书持续更新 · AI 形象化讲解
+        </div>
+        <h1>洞察核心，<span class="em">决胜高考</span>。</h1>
+        <div class="hero-tagline mono">
+          独特讲解 · 精准提分 · 把底层逻辑讲成人人秒懂的画面
+        </div>
+      </div>
+    </section>
+
+    <!-- 今日精选 Banner -->
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">今日精选</h2>
+        </div>
+        <a class="home-banner" style="--tint:#df5130" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">
+          <span class="hb-code mono">精讲</span>
+          <div class="hb-inner">
+            <div class="hb-meta">
+              <span class="hb-pill">视频首发</span>
+              <span class="hb-ver">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                已核对
+              </span>
+              <span class="hb-free">免费</span>
+              <span class="hb-src mono">№ 001 · 导数本质</span>
+            </div>
+            <h2 class="hb-title">导数：瞬时变化率到底在变什么？</h2>
+            <p class="hb-dek">不是套公式，是理解「正在发生的变化」。用一辆加速的车，把导数讲清楚。</p>
+            <div class="hb-foot mono">6 分钟</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 每日打卡入口 -->
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap-760">
+        <a class="home-banner" style="--tint:#d4a843" href="checklist.html">
+          <span class="hb-code mono">打卡</span>
+          <div class="hb-inner">
+            <div class="hb-meta">
+              <span class="hb-pill" style="background:rgba(212,168,67,.15);color:#d4a843">每日追踪</span>
+              <span class="hb-free">31 项任务</span>
+              <span class="hb-src mono">距高考 <span id="daysToGaokao">331</span> 天</span>
+            </div>
+            <h2 class="hb-title">考上清华大学的必要条件</h2>
+            <p class="hb-dek">每日/每周/每月/长期四维度任务拆解，2026.12.31 前全部完成。打卡追踪，一天不漏。</p>
+            <div class="hb-foot mono">开始打卡 →</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 学习平台入口 -->
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap-760">
+        <a class="home-banner" style="--tint:#10b981" href="/study/">
+          <span class="hb-code mono">平台</span>
+          <div class="hb-inner">
+            <div class="hb-meta">
+              <span class="hb-pill" style="background:rgba(16,185,129,.15);color:#10b981">学习平台</span>
+              <span class="hb-free">每日追踪 · 错题本 · 遗复</span>
+              <span class="hb-src mono">v0.1.0</span>
+            </div>
+            <h2 class="hb-title">高考学习效率平台</h2>
+            <p class="hb-dek">每日追踪16个时间段、错题本自动分类、间隔重复遗复系统、每日复盘模板。解决学了16小时但只有3小时真学的问题。</p>
+            <div class="hb-foot mono">进入平台 →</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         知识探索 · 滚动式叙事
+         设计参考：Aston Martin Valhalla 品牌官网
+         每个知识点 = 一个全幅章节，滚动触发展开
+         ═══════════════════════════════════════════════════ -->
+    <section class="explore">
+      <!-- 章节 01 -->
+      <div class="exp-chapter" data-chapter="01">
+        <div class="exp-ch-progress">
+          <span class="dot active"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+        </div>
+        <div class="exp-bg" style="--accent-hue: 35">
+          <div class="exp-bg-gradient"></div>
+        </div>
+        <div class="exp-inner">
+          <div class="exp-ch-label mono">
+            <span class="exp-ch-num">01</span>
+            <span class="exp-ch-cat">导数 · 数学</span>
+          </div>
+          <h2 class="exp-ch-title">导数不是公式，<br>是<span class="em">正在发生的</span>变化。</h2>
+          <p class="exp-ch-body">
+            加速度表的指针在动，那根指针的"动得有多快"就是导数。<br>
+            它不是死记的符号，是任何连续变化的<strong>瞬时快慢</strong>。
+          </p>
+        </div>
+        <div class="exp-data">
+          <div class="exp-d-item">
+            <span class="exp-d-num" data-value="f'(x)">f'(x)</span>
+            <span class="exp-d-label">瞬时变化率</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num" data-value="切线斜率">切线斜率</span>
+            <span class="exp-d-label">几何意义</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num" data-value="f'(x) = 0">f'(x) = 0</span>
+            <span class="exp-d-label">极值点条件</span>
+          </div>
+        </div>
+        <div class="exp-scroll-hint">
+          <span>SCROLL TO ADVANCE</span>
+          <div class="exp-scroll-arrow"></div>
+        </div>
+      </div>
+
+      <!-- 章节 02 -->
+      <div class="exp-chapter" data-chapter="02">
+        <div class="exp-ch-progress">
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+        </div>
+
+        <div class="exp-bg" style="--accent-hue: 200">
+          <div class="exp-bg-gradient"></div>
+        </div>
+        <div class="exp-inner">
+          <div class="exp-ch-label mono">
+            <span class="exp-ch-num">02</span>
+            <span class="exp-ch-cat">受力分析 · 物理</span>
+          </div>
+          <h2 class="exp-ch-title">所有力，先<span class="em">拆</span>再<span class="em">合</span>。</h2>
+          <p class="exp-ch-body">
+            把物体从世界中孤立出来，只留它和周围的相互作用。<br>
+            重力、弹力、摩擦力——三个清单列完，受力图就画完了。
+          </p>
+        </div>
+        <div class="exp-data">
+          <div class="exp-d-item">
+            <span class="exp-d-num">ΣF = ma</span>
+            <span class="exp-d-label">牛顿第二定律</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">正交分解</span>
+            <span class="exp-d-label">X/Y 轴分别列</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">ΣF = 0</span>
+            <span class="exp-d-label">平衡条件</span>
+          </div>
+        </div>
+        <div class="exp-scroll-hint">
+          <span>SCROLL TO ADVANCE</span>
+          <div class="exp-scroll-arrow"></div>
+        </div>
+      </div>
+
+      <!-- 章节 03 -->
+      <div class="exp-chapter" data-chapter="03">
+        <div class="exp-ch-progress">
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+        </div>
+
+        <div class="exp-bg" style="--accent-hue: 150">
+          <div class="exp-bg-gradient"></div>
+        </div>
+        <div class="exp-inner">
+          <div class="exp-ch-label mono">
+            <span class="exp-ch-num">03</span>
+            <span class="exp-ch-cat">化学平衡 · 化学</span>
+          </div>
+          <h2 class="exp-ch-title">平衡不是<span class="em">静止</span>，<br>是<span class="em">势均力敌</span>。</h2>
+          <p class="exp-ch-body">
+            正反应速率 = 逆反应速率，不是"不动了"——<br>
+            是两股力量相互抵消，<strong>动态的均势</strong>。
+          </p>
+        </div>
+        <div class="exp-data">
+          <div class="exp-d-item">
+            <span class="exp-d-num">v正 = v逆</span>
+            <span class="exp-d-label">平衡条件</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">勒夏特列</span>
+            <span class="exp-d-label">移动方向判断</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">K = [产物]/[反应物]</span>
+            <span class="exp-d-label">平衡常数</span>
+          </div>
+        </div>
+        <div class="exp-scroll-hint">
+          <span>SCROLL TO ADVANCE</span>
+          <div class="exp-scroll-arrow"></div>
+        </div>
+      </div>
+
+      <!-- 章节 04 -->
+      <div class="exp-chapter" data-chapter="04">
+        <div class="exp-ch-progress">
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+          <div class="line"></div>
+          <span class="dot"></span>
+        </div>
+
+        <div class="exp-bg" style="--accent-hue: 45">
+          <div class="exp-bg-gradient"></div>
+        </div>
+        <div class="exp-inner">
+          <div class="exp-ch-label mono">
+            <span class="exp-ch-num">04</span>
+            <span class="exp-ch-cat">三角函数 · 数学</span>
+          </div>
+          <h2 class="exp-ch-title">圆周运动，<br><span class="em">投影到直尺</span>上。</h2>
+          <p class="exp-ch-body">
+            一个点在圆上转，它在水平轴上的投影就是 sin。<br>
+            旋转 → 投影 → 波形——<strong>一句话讲完三角函数的本质</strong>。
+          </p>
+        </div>
+        <div class="exp-data">
+          <div class="exp-d-item">
+            <span class="exp-d-num">sin² + cos² = 1</span>
+            <span class="exp-d-label">核心恒等式</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">y = A sin(ωx+φ)</span>
+            <span class="exp-d-label">振幅 / 频率 / 相位</span>
+          </div>
+          <div class="exp-d-item">
+            <span class="exp-d-num">弧长 = rθ</span>
+            <span class="exp-d-label">弧度制</span>
+          </div>
+        </div>
+        <div class="exp-scroll-hint">
+          <span>SCROLL TO ADVANCE</span>
+          <div class="exp-scroll-arrow"></div>
+        </div>
+      </div>
+
+      <div class="exp-end">
+        <p class="mono">持续更新中 · 更多章节即将展开</p>
+        <a class="btn btn-primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书，不错过每一期</a>
+      </div>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="section soft">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">知识领域</h2>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="#" style="--tint:#df5130">
+            <div class="top">
+              <span class="sq"></span>
+              <span class="cnt mono">12 期</span>
+            </div>
+            <div class="name">数学</div>
+            <div class="en">Math</div>
+          </a>
+          <a class="cat-card" href="#" style="--tint:#2f7d57">
+            <div class="top">
+              <span class="sq"></span>
+              <span class="cnt mono">8 期</span>
+            </div>
+            <div class="name">物理</div>
+            <div class="en">Physics</div>
+          </a>
+          <a class="cat-card" href="#" style="--tint:#4b5bc4">
+            <div class="top">
+              <span class="sq"></span>
+              <span class="cnt mono">9 期</span>
+            </div>
+            <div class="name">化学</div>
+            <div class="en">Chemistry</div>
+          </a>
+          <a class="cat-card" href="#" style="--tint:#b07d22" aria-disabled="true">
+            <div class="top">
+              <span class="sq"></span>
+              <span class="cnt mono">6 期</span>
+            </div>
+            <div class="name">生物</div>
+            <div class="en">Biology</div>
+          </a>
+        </div>
+        <p class="note" style="text-align:center;margin-top:18px">
+          学科详情页正在建设中，敬请期待。
+        </p>
+      </div>
+    </section>
+
+    <!-- 教学方法 -->
+    <section class="section">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">教学方法</h2>
+          <a class="sec-more" href="methods.html">查看完整方法 <span>→</span></a>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="ico">1</div>
+            <h3>底层逻辑拆解法</h3>
+            <p>从定义出发，用第一性原理把知识点还原成最小可懂单元，再逐层建构。</p>
+          </div>
+          <div class="card">
+            <div class="ico">2</div>
+            <h3>视觉隐喻库</h3>
+            <p>为每个抽象概念匹配一个生活化画面，让记忆有锚点。加速的车、拔河的两边。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 进阶专栏 -->
+    <section class="section soft">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">进阶专栏（筹备中）</h2>
+        </div>
+        <p class="note">
+          完整知识体系地图、个性化诊断与计划等体系化服务，将通过小红书专栏 / 知识星球 / 小鹅通等第三方平台承载，上线后第一时间在小红书通知。
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>完整知识体系地图</h3>
+            <p>按科目串联知识点，从底层逻辑到考场应用的完整路径，不止于单点。</p>
+          </div>
+          <div class="card">
+            <h3>个性化诊断 + 计划</h3>
+            <p>定位薄弱点，给出可执行的提分节奏。专属内容，非开源搬运。</p>
+          </div>
+        </div>
+        <p style="margin-top:22px">
+          <a class="btn btn-primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书，专栏上线通知</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 小红书主页 -->
+    <section class="section">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">小红书主页</h2>
+        </div>
+        <p class="note">
+          高考提分资料包、复习计划等商品/店铺正在筹备中，上架后会在小红书第一时间通知。
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="ico">📘</div>
+            <h3>高考提分资料包</h3>
+            <p>按科目整理的底层逻辑拆解 + 提分技巧，持续更新中。</p>
+          </div>
+          <div class="card">
+            <div class="ico">📋</div>
+            <h3>复习计划</h3>
+            <p>从高考倒计时到考前冲刺，可执行的每日提分节奏。</p>
+          </div>
+        </div>
+        <p style="margin-top:22px">
+          <a class="btn btn-primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">去小红书主页看看</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 底部 CTA -->
+    <section class="section soft">
+      <div class="wrap-760">
+        <div class="cta-band">
+          <h2>想看懂，而不是背答案？</h2>
+          <p>来小红书，每天一条视频+图文笔记，把底层逻辑一次看明白。</p>
+          <a class="btn btn-white" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注我的小红书账号</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <div class="mark">
+          <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo">
+          <span class="brand-dot"></span>
+          <span class="brand-sub mono">核心考点 · 智能提分</span>
+        </div>
+        <p>高考知识点底层逻辑拆解 + 独特提分技巧，帮你看懂、记住、用对。</p>
+      </div>
+      <div class="footer-col">
+        <div class="h">导航</div>
+        <div class="links">
+          <a href="index.html">首页</a>
+          <a href="methods.html">教学方法</a>
+          <a href="calculator.html">努力价值计算</a>
+          <a href="checklist.html">每日打卡</a>
+          <a href="changelog.html">更新日志</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">社区</div>
+        <div class="links">
+          <a href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">小红书</a>
+          <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">关注</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:10px;">
+          最新视频与提分技巧优先在小红书更新。
+        </p>
+        <a class="wall-btn primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="inner">
+        <div>© <span id="year"></span> 高考知识点精讲 · 用逻辑代替题海</div>
+        <div>Made with AI · 底层逻辑拆解</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
