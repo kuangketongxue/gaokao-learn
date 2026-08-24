@@ -1,0 +1,8 @@
+/* ── Shared Config ── */
+var GAOKAO_CONFIG = {
+  GAOKAO_DATE: '2027-06-07',
+  START_DATE: '2026-07-11',
+  DEADLINE: '2026-12-31',
+  TARGET_SCORE: 688,
+  RETIRE_AGE: 60,
+};
