@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜索知识点 · 高考核心考点 · 智能提分</title>
+  <meta name="description" content="搜索高考知识点底层逻辑拆解与提分技巧。">
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('xh-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo"><span class="brand-dot"></span>
+        <span class="brand-sub mono">核心考点 · 智能提分</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">首页</a>
+        <a href="methods.html">教学方法</a>
+        <a href="calculator.html">努力价值计算</a>
+        <a href="checklist.html">每日打卡</a>
+        <a href="changelog.html">更新日志</a>
+        <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub 开源</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <a class="btn-search" href="search.html" title="搜索知识点">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+        </svg>
+        <span>搜索解读…</span>
+      </a>
+      <a class="icon-link" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener" title="小红书">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/>
+          <circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <button class="btn-theme" id="btnTheme" data-theme-toggle title="切换主题">
+        <span class="ico">☀️</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="rise">
+    <section class="hero">
+      <div class="wrap-760">
+        <div class="eyebrow mono">搜索</div>
+        <h1>搜索<span class="em">知识点</span></h1>
+        <div class="hero-tagline mono">
+          输入关键词，查找底层逻辑拆解与提分技巧
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap-760">
+        <div class="search-box" style="margin-top: 18px;">
+          <input type="text" id="searchInput" placeholder="搜索知识点、技巧、题型…" style="flex:1;border:none;outline:none;background:transparent;font-size:17px;color:var(--ink);" />
+          <button class="wall-btn primary" id="searchBtn">搜索</button>
+        </div>
+
+        <div class="hotq" style="margin-top: 28px;">
+          <div class="sec-head" style="width:100%;">
+            <h2 class="sec-title mono">热门搜索</h2>
+          </div>
+          <button class="hotq-btn">导数</button>
+          <button class="hotq-btn">受力分析</button>
+          <button class="hotq-btn">化学平衡</button>
+          <button class="hotq-btn">向量合成</button>
+          <button class="hotq-btn">电场强度</button>
+          <button class="hotq-btn">有机化学</button>
+        </div>
+
+        <div class="note" style="margin-top: 28px;">
+          搜索功能即将上线。当前可前往 <a href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener" style="color:var(--ember);font-weight:600;">小红书</a> 浏览全部知识点视频。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <div class="mark">
+          <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo"><span class="brand-dot"></span>
+          <span class="brand-sub mono">核心考点 · 智能提分</span>
+        </div>
+        <p>高考知识点底层逻辑拆解 + 独特提分技巧，帮你看懂、记住、用对。</p>
+      </div>
+      <div class="footer-col">
+        <div class="h">导航</div>
+        <div class="links">
+          <a href="index.html">首页</a>
+          <a href="methods.html">教学方法</a>
+          <a href="calculator.html">努力价值计算</a>
+          <a href="checklist.html">每日打卡</a>
+          <a href="changelog.html">更新日志</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">社区</div>
+        <div class="links">
+          <a href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">小红书</a>
+          <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">关注</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:10px;">
+          最新视频与提分技巧优先在小红书更新。
+        </p>
+        <a class="wall-btn primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="inner">
+        <div>© <span id="year"></span> 高考知识点精讲 · 用逻辑代替题海</div>
+        <div>Made with AI · 底层逻辑拆解</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
