@@ -1,6 +1,6 @@
 // ============================================================
 // 高考知识点精讲 · 主脚本
-// 功能：导航、主题切换、滚动动画、搜索提示、Toast
+// 功能：导航、主题切换、滚动动画
 // ============================================================
 
 (function () {
@@ -11,52 +11,25 @@
   window.xh = window.xh || {};
   window.xh.$ = $;
 
-  // ---------- Toast 通知 ----------
-  var toastTimer = null;
-  function toast(msg) {
-    var el = document.querySelector('.xh-toast');
-    if (!el) {
-      el = document.createElement('div');
-      el.className = 'xh-toast';
-      document.body.appendChild(el);
-    }
-    clearTimeout(toastTimer);
-    el.textContent = msg;
-    el.classList.remove('show');
-    // 强制回流以重新触发动画
-    void el.offsetWidth;
-    el.classList.add('show');
-    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2400);
-  }
-  window.xh.toast = toast;
-
   // ---------- 1. 移动端导航 ----------
   var toggle = $('navToggle');
   var links = $('navLinks');
   if (toggle && links) {
     toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') links.classList.remove('open');
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
   // ---------- 2. 页脚年份 ----------
   var y = $('year');
   if (y) y.textContent = new Date().getFullYear();
-
-  // ---------- 2b. 首页倒计时（距高考天数） ----------
-  var daysEl = $('daysToGaokao');
-  if (daysEl && window.GAOKAO_CONFIG) {
-    try {
-      var gk = new Date(GAOKAO_CONFIG.GAOKAO_DATE);
-      var today = new Date();
-      today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      var days = Math.max(0, Math.ceil((gk - today) / 864e5));
-      daysEl.textContent = days;
-    } catch (e) {}
-  }
 
   // ---------- 3. 主题切换 ----------
   var themeBtn = $('btnTheme');
@@ -105,7 +78,7 @@
     }, { threshold: 0.08 });
 
     // 观察所有 section、卡片 + 知识探索章节
-    document.querySelectorAll('.section, .card, .cat-card, .home-banner').forEach(function (el) {
+    document.querySelectorAll('.section, .card, .home-banner').forEach(function (el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';
       el.style.transition = 'opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1)';
@@ -191,30 +164,5 @@
   var style = document.createElement('style');
   style.textContent = '.in { opacity: 1 !important; transform: none !important; }';
   document.head.appendChild(style);
-
-  // ---------- 5. 搜索页交互 ----------
-  var searchInput = $('searchInput');
-  var searchBtn = $('searchBtn');
-  if (searchInput && searchBtn) {
-    searchBtn.addEventListener('click', function () {
-      var q = searchInput.value.trim();
-      if (q) {
-        toast('搜索「' + q + '」— 功能即将上线');
-      }
-    });
-    searchInput.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') searchBtn.click();
-    });
-  }
-
-  // 热门搜索标签 → 填入搜索框
-  document.querySelectorAll('.hotq-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      if (searchInput) {
-        searchInput.value = this.textContent;
-        searchInput.focus();
-      }
-    });
-  });
 
 })();

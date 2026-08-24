@@ -11,10 +11,15 @@
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // title/body 允许作者写 em/strong/br 标记，其余标签剔除
+  // title/body 允许作者写 em/strong/br 及 <span class="em"> 标记，其余标签剔除。
+  // span 先换成控制字符占位再剥离其余标签，防止带属性的 span（如 onclick）穿透。
   function rich(s) {
     return String(s)
+      .replace(/<span\s+class="em"\s*>/gi, '\x01')
+      .replace(/<\/span\s*>/gi, '\x02')
       .replace(/<(?!\/?(em|strong|br)\b)[^>]*>/gi, '')
+      .replace(/\x01/g, '<span class="em">')
+      .replace(/\x02/g, '</span>')
       .replace(/&(?!(amp|lt|gt|quot|#\d+);)/g, '&amp;');
   }
 

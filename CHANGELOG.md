@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Chapter titles lost their accent-colored emphasis: `rich()` sanitizer stripped `<span class="em">` — now whitelisted (attribute-carrying spans still stripped)
+- Mobile hamburger button was invisible (spans had zero size) — proper styles added, plus `aria-expanded` state
+- Bilingual README chapter tables had Date/Chapter columns swapped
+
+### Changed
+
+- Removed dead code: ~22KB unused CSS (checklist/calculator/search/category/video cards), toast & countdown & search JS, unused `config.js` (contained personal target data)
+- Renamed assets to semantic names and compressed: `logo.png` 1.63MB→22KB (128px, shown at 32px), `cover.jpg` 136KB→107KB
+- Added SEO baseline (`robots.txt`, `sitemap.xml`) and security headers (`_headers`: nosniff, DENY framing, referrer policy)
+- Accessibility: theme toggle `aria-label`, hamburger `aria-expanded`
+
 ### Planned
 
 - More subjects: English, Chinese, Biology

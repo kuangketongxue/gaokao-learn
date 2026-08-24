@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="gaokao-learn" width="120" />
+  <img src="logo.png" alt="gaokao-learn" width="120" />
 </div>
 
 <h1 align="center">gaokao-learn</h1>
@@ -44,10 +44,10 @@
 
 | № | 章节 | 记录日期 | 科目 | 一句话本质 |
 |---|---|---|---|---|
-| 01 | 2026-08-24 | 物质分类 | 化学 | 键型看构成微粒，不看名字猜 |
-| 02 | 2026-08-24 | 分离提纯 | 化学 | 按沸点分离：蒸发、冷凝、收集 |
-| 03 | 2026-08-24 | 高分子材料 | 化学 | PLA：大自然能「吃掉」的塑料 |
-| 04 | 2026-08-24 | 硫及其化合物 | 化学 | SO₂ 使 KMnO₄ 褪色靠的是**还原性**，不是漂白性 |
+| 01 | 物质分类 | 2026-08-24 | 化学 | 键型看构成微粒，不看名字猜 |
+| 02 | 分离提纯 | 2026-08-24 | 化学 | 按沸点分离：蒸发、冷凝、收集 |
+| 03 | 高分子材料 | 2026-08-24 | 化学 | PLA：大自然能「吃掉」的塑料 |
+| 04 | 硫及其化合物 | 2026-08-24 | 化学 | SO₂ 使 KMnO₄ 褪色靠的是**还原性**，不是漂白性 |
 
 <p align="right">(<a href="#about">回到顶部</a>)</p>
 
@@ -102,10 +102,10 @@ python -m http.server 8000
 ├── index.html      # 单页：Hero、今日精选、章节挂载点、方法论、CTA
 ├── content.js      # ★ 全部章节数据——加内容只改这一个文件
 ├── render.js       # 把 EXPLORE_CHAPTERS 渲染进 #exploreMount
-├── config.js       # 站点配置（高考倒计时等）
-├── main.js         # 共享行为：导航、主题切换、滚动动画、Toast
+├── main.js         # 共享行为：导航、主题切换、滚动动画
 ├── style.css       # 全站样式，浅/深双主题，章节主题色相
-└── *.png / *.jpg   # Logo 与封面图
+├── robots.txt / sitemap.xml / _headers   # SEO 与安全响应头
+└── logo.png / cover.jpg / favicon.ico    # Logo 与封面图
 ```
 
 ### 新增一章（最有意思的部分）
