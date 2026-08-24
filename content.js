@@ -70,5 +70,29 @@ var EXPLORE_CHAPTERS = [
       { value: 'He', label: '无化学键的单原子分子' }
     ],
     accentHue: 285
+  },
+  {
+    id: '06',
+    category: '分离提纯 · 化学',
+    title: '蒸馏：按沸点，<br><span class="em">分批带走</span>。',
+    body: '乙酸乙酯是液体，沸点较低（约 77℃）。加热蒸馏，它先汽化、再冷凝收集——<strong>固体干燥剂和高沸点杂质留在烧瓶里</strong>。<br>这是有机液体提纯常用的最后一步。',
+    dataItems: [
+      { value: '≈77℃', label: '乙酸乙酯沸点' },
+      { value: '蒸发 + 冷凝', label: '蒸馏两步走' },
+      { value: '留瓶中', label: '干燥剂·高沸点杂质' }
+    ],
+    accentHue: 12
+  },
+  {
+    id: '07',
+    category: '高分子材料 · 化学',
+    title: '塑料也能被自然<br><span class="em">「吃掉」</span>。',
+    body: '用聚乳酸制作可降解的一次性餐具，利用的是 PLA 良好的<strong>生物可降解性</strong>——<br>微生物能把它分解成二氧化碳和水，不留百年垃圾。',
+    dataItems: [
+      { value: 'PLA', label: '聚乳酸·可降解塑料' },
+      { value: '生物可降解', label: '餐具选材依据' },
+      { value: 'CO₂ + H₂O', label: '最终降解产物' }
+    ],
+    accentHue: 130
   }
 ];
