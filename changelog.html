@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>更新日志 · 高考核心考点 · 智能提分</title>
+  <meta name="description" content="官网与项目的重要更新记录：定位升级、上线里程碑、即将推出内容。" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('xh-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo">
+        <span class="brand-dot"></span>
+        <span class="brand-sub mono">核心考点 · 智能提分</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">首页</a>
+        <a href="methods.html">教学方法</a>
+        <a href="calculator.html">努力价值计算</a>
+        <a href="checklist.html">每日打卡</a>
+        <a href="changelog.html" class="active">更新日志</a>
+        <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub 开源</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <a class="btn-search" href="search.html" title="搜索知识点">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+        </svg>
+        <span>搜索解读…</span>
+      </a>
+      <a class="icon-link" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener" title="小红书">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/>
+          <circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <button class="btn-theme" id="btnTheme" data-theme-toggle title="切换主题">
+        <span class="ico">☀️</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="rise">
+    <section class="hero">
+      <div class="wrap-760">
+        <div class="eyebrow mono">
+          <span class="pulse"></span>持续更新
+        </div>
+        <h1>更新<span class="em">日志</span></h1>
+        <div class="hero-tagline mono">
+          这个项目的每一步重要变化都记在这里
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026-07-14 -->
+    <section class="section">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">2026-07-14 · 定位修正与结构清理</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="ico">🎯</div>
+            <h3>战略表述同步</h3>
+            <p>统一 README 与 CHANGELOG 的官网定位：明确为「免费展示 + 引流入口」，与付费墙路径 A（第三方平台）一致。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🧹</div>
+            <h3>清理演示登录 / 支付 UI</h3>
+            <p>移除全部 6 个页面的登录按钮、登录 / 注册 / 支付模态框、会员定价卡，清理相关 JS / CSS 约 300 行。</p>
+          </div>
+          <div class="card">
+            <div class="ico">📝</div>
+            <h3>引流文案诚实化</h3>
+            <p>「进阶专栏」「小红书主页」均注明筹备中；页脚假订阅表单改为「关注小红书」CTA。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🔒</div>
+            <h3>凭证安全修复</h3>
+            <p>gen_ai_cards.py 硬编码 API Key 改为环境变量读取，防止泄露。</p>
+          </div>
+          <div class="card">
+            <div class="ico">📦</div>
+            <h3>结构整理</h3>
+            <p>删除 functions/、site/_functions/、fitness/、opencli-extension-v1.0.22/、generated-videos/ 及散落素材。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026-07-11 -->
+    <section class="section">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">2026-07-11 · 每日打卡 + 努力价值计算器 + 架构优化</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="ico">📋</div>
+            <h3>每日打卡系统</h3>
+            <p>31 项任务按时间段组织，localStorage 持久化，覆盖五维度。无需登录即可使用。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🧮</div>
+            <h3>努力价值计算器</h3>
+            <p>三步走决策辅助：填信息→选路径→看结果。复读 vs 考研 vs 直接工作，AI 贬值系数可调。</p>
+          </div>
+          <div class="card">
+            <div class="ico">⚡</div>
+            <h3>架构优化</h3>
+            <p>Inline CSS/JS → 独立文件，config.js 共享常量，main.js 暴露工具函数。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🔧</div>
+            <h3>简化审查修复</h3>
+            <p>修复 9 项问题。默认：21岁/500分/目标688/清华/人工智能/广东/12h。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🤖</div>
+            <h3>Turnstile 真人验证</h3>
+            <p>计算器页面集成 Cloudflare Turnstile，验证通过后才显示内容，防机器人滥用，零配置免费使用。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2026-07-07 -->
+    <section class="section">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">2026-07-07 · 项目启动</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="ico">🌐</div>
+            <h3>官网正式上线</h3>
+            <p>产品站 crazy-gaokao-tsinghua.pages.dev 上线，作为免费内容展示与引流入口。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🎯</div>
+            <h3>三大战场定稿</h3>
+            <p>GitHub 开源知识点底层逻辑拆解；小红书日更视频+图文笔记；Cloudflare 官网作为展示引流入口。</p>
+          </div>
+          <div class="card">
+            <div class="ico">📱</div>
+            <h3>接入真实小红书账号</h3>
+            <p>官网所有入口已指向真实主页，关注即可获取持续更新的高考提分内容。</p>
+          </div>
+          <div class="card">
+            <div class="ico">💡</div>
+            <h3>进阶付费专栏（筹备中）</h3>
+            <p>体系化提分路线图、个性化诊断等深度内容，将通过国内第三方平台承载，上线后在小红书通知。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap-760">
+        <div class="sec-head">
+          <h2 class="sec-title mono">即将推出</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="ico">▶</div>
+            <h3>小红书日更</h3>
+            <p>每天发布高考知识点视频+图文笔记，覆盖数学、语文、英语、理综、文综各科高频考点。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🗺</div>
+            <h3>分科提分路线图</h3>
+            <p>按科目串联知识点，从底层逻辑到考场应用的完整路径。</p>
+          </div>
+          <div class="card">
+            <div class="ico">🔓</div>
+            <h3>高考商品（筹备中）</h3>
+            <p>精选提分资料包与复习计划，小红书店铺上架后可直接购买。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap-760">
+        <div class="cta-band">
+          <h2>想看懂，而不是背答案？</h2>
+          <p>来小红书，每天一条视频+图文，把底层逻辑一次看明白。</p>
+          <a class="btn btn-white" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注我的小红书账号</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <div class="mark">
+          <img src="b97cd1ee-709c-4553-b53d-cadbb6773c26.png" alt="Logo" class="brand-logo"><span class="brand-dot"></span>
+          <span class="brand-sub mono">核心考点 · 智能提分</span>
+        </div>
+        <p>高考知识点底层逻辑拆解 + 独特提分技巧，帮你看懂、记住、用对。</p>
+      </div>
+      <div class="footer-col">
+        <div class="h">导航</div>
+        <div class="links">
+          <a href="index.html">首页</a>
+          <a href="methods.html">教学方法</a>
+          <a href="calculator.html">努力价值计算</a>
+          <a href="checklist.html">每日打卡</a>
+          <a href="changelog.html">更新日志</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">社区</div>
+        <div class="links">
+          <a href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">小红书</a>
+          <a href="https://github.com/kuangketongxue/gaokao-learn" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="h">关注</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:10px;">
+          最新视频与提分技巧优先在小红书更新。
+        </p>
+        <a class="wall-btn primary" href="https://www.xiaohongshu.com/user/profile/61ef879f000000001000d2ce" target="_blank" rel="noopener">关注小红书</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="inner">
+        <div>© <span id="year"></span> 高考知识点精讲 · 用逻辑代替题海</div>
+        <div>Made with AI · 底层逻辑拆解</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
