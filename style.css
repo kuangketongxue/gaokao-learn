@@ -1342,6 +1342,17 @@ a:hover { color: var(--ember); }
   color: hsl(var(--accent-hue, 35), 70%, 55%);
 }
 
+/* 章节记录日期徽章 */
+.exp-ch-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  opacity: .85;
+}
+
 .exp-chapter.in .exp-ch-label {
   opacity: 1;
   transform: none;

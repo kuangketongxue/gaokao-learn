@@ -42,12 +42,12 @@ It powers the daily-updated content site **[crazy-gaokao-tsinghua.pages.dev](htt
 |---:|---:|---:|---|
 | 4 and growing | Chemistry (more subjects coming) | Daily | Pure HTML/CSS/JS, zero build |
 
-| № | Chapter | Subject | One-line essence |
-|---|---|---|---|
-| 01 | Substance classification | Chemistry | Bond type follows constituent particles, not names |
-| 02 | Distillation purification | Chemistry | Separate by boiling point: evaporate, condense, collect |
-| 03 | Polymer materials | Chemistry | PLA: plastics that nature can digest |
-| 04 | Sulfur chemistry | Chemistry | SO₂ decolorizes KMnO₄ by *reducing* it, not bleaching it |
+| № | Chapter | Date | Subject | One-line essence |
+|---|---|---|---|---|
+| 01 | 2026-08-24 | Substance classification | Chemistry | Bond type follows constituent particles, not names |
+| 02 | 2026-08-24 | Distillation purification | Chemistry | Separate by boiling point: evaporate, condense, collect |
+| 03 | 2026-08-24 | Polymer materials | Chemistry | PLA: plastics that nature can digest |
+| 04 | 2026-08-24 | Sulfur chemistry | Chemistry | SO₂ decolorizes KMnO₄ by *reducing* it, not bleaching it |
 
 <p align="right">(<a href="#about">back to top</a>)</p>
 

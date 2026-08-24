@@ -39,7 +39,8 @@
       '<div class="exp-bg-gradient"></div></div>' +
       '<div class="exp-inner">' +
       '<div class="exp-ch-label mono"><span class="exp-ch-num">' + esc(ch.id) + '</span>' +
-      '<span class="exp-ch-cat">' + esc(ch.category) + '</span></div>' +
+      '<span class="exp-ch-cat">' + esc(ch.category) + '</span>' +
+      (ch.date ? '<span class="exp-ch-date mono">📅 ' + esc(ch.date) + '</span>' : '') + '</div>' +
       '<h2 class="exp-ch-title">' + rich(ch.title) + '</h2>' +
       '<p class="exp-ch-body">' + rich(ch.body) + '</p>' +
       '</div>' +

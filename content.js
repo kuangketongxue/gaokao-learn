@@ -13,6 +13,7 @@
 var EXPLORE_CHAPTERS = [
   {
     id: '01',
+    date: '2026-08-24',
     category: '物质分类 · 化学',
     title: '键型看<span class="em">构成微粒</span>，<br>不看名字猜。',
     body: '铌酸锂：Li⁺ 与 NbO₃⁻ 阴阳离子相吸 → <strong>离子晶体</strong>；SiC：原子间共价网状结合 → 原子晶体。合金硬度通常<strong>大于</strong>纯金属；He 是单原子分子——原子之间<strong>没有化学键</strong>。',
@@ -25,6 +26,7 @@ var EXPLORE_CHAPTERS = [
   },
   {
     id: '02',
+    date: '2026-08-24',
     category: '分离提纯 · 化学',
     title: '蒸馏：按沸点，<br><span class="em">分批带走</span>。',
     body: '乙酸乙酯是液体，沸点较低（约 77℃）。加热蒸馏，它先汽化、再冷凝收集——<strong>固体干燥剂和高沸点杂质留在烧瓶里</strong>。<br>这是有机液体提纯常用的最后一步。',
@@ -37,6 +39,7 @@ var EXPLORE_CHAPTERS = [
   },
   {
     id: '03',
+    date: '2026-08-24',
     category: '高分子材料 · 化学',
     title: '塑料也能被自然<br><span class="em">「吃掉」</span>。',
     body: '用聚乳酸制作可降解的一次性餐具，利用的是 PLA 良好的<strong>生物可降解性</strong>——<br>微生物能把它分解成二氧化碳和水，不留百年垃圾。',
@@ -49,6 +52,7 @@ var EXPLORE_CHAPTERS = [
   },
   {
     id: '04',
+    date: '2026-08-24',
     category: '硫及其化合物 · 化学',
     title: '褪色分两种：<br><span class="em">漂白</span>和<span class="em">被氧化</span>。',
     body: '铜与浓硫酸加热：Cu + 2H₂SO₄(浓) → CuSO₄ + SO₂↑ + 2H₂O，体现浓硫酸的<strong>强氧化性</strong>。<br>SO₂ 使酸性 KMnO₄ 溶液褪色，靠的不是漂白性，而是 <strong>+4 价硫的还原性</strong>——它把 MnO₄⁻ 还原了。',
