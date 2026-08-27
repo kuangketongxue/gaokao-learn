@@ -40,7 +40,7 @@ It powers the daily-updated content site **[crazy-gaokao-tsinghua.pages.dev](htt
 
 | Chapters | Subjects | Update cadence | Site stack |
 |---:|---:|---:|---|
-| 4 and growing | Chemistry (more subjects coming) | Daily | Pure HTML/CSS/JS, zero build |
+| 7 and growing | Chemistry + Physics | Daily | Pure HTML/CSS/JS, zero build |
 
 | № | Chapter | Date | Subject | One-line essence |
 |---|---|---|---|---|
@@ -48,6 +48,9 @@ It powers the daily-updated content site **[crazy-gaokao-tsinghua.pages.dev](htt
 | 02 | Distillation purification | 2026-08-24 | Chemistry | Separate by boiling point: evaporate, condense, collect |
 | 03 | Polymer materials | 2026-08-24 | Chemistry | PLA: plastics that nature can digest |
 | 04 | Sulfur chemistry | 2026-08-24 | Chemistry | SO₂ decolorizes KMnO₄ by *reducing* it, not bleaching it |
+| 05 | Mechanical energy conservation | 2026-08-27 | Physics | With only gravity/elasticity doing work, mechanical energy stays constant |
+| 06 | Orbital motion | 2026-08-27 | Physics | Same central body: higher orbit → lower speed, larger period |
+| 07 | Cosmic velocity | 2026-08-27 | Physics | Near-earth orbit speed = first cosmic velocity ≈ 7.9 km/s |
 
 <p align="right">(<a href="#about">back to top</a>)</p>
 
@@ -99,9 +102,9 @@ Then open `http://localhost:8000` (or the port your server prints).
 
 ```
 .
-├── index.html      # Single page: hero, featured banner, chapter mount point, methodology, CTA
+├── index.html      # Single page: hero, featured banner, knowledge-point catalog mount, chapter mount, methodology, CTA
 ├── content.js      # ★ All chapter data — the ONLY file you edit to add content
-├── render.js       # Renders EXPLORE_CHAPTERS into #exploreMount
+├── render.js       # Renders the catalog (renderToc → #tocMount) + chapters (renderList → #exploreMount), score-sorted
 ├── main.js         # Shared behavior: nav, theme toggle, scroll animations
 ├── style.css       # Full stylesheet, light/dark themes, per-chapter accent hues
 ├── robots.txt / sitemap.xml / _headers   # SEO & security headers
@@ -123,7 +126,8 @@ Open [`content.js`](content.js) and append one object to `EXPLORE_CHAPTERS`:
     { value: 'E = nΔΦ/Δt', label: '法拉第定律' },
     { value: '楞次定律', label: '方向判断' }
   ],
-  accentHue: 220                          // chapter theme color, 0-360
+  accentHue: 220,                         // chapter theme color, 0-360
+  score: 90                               // priority score 1-100 (higher = worth studying first); homepage sorts by it
 }
 ```
 
@@ -148,7 +152,8 @@ Push to `main`. GitHub Actions builds nothing (there is nothing to build) and th
 ## Roadmap
 
 - [ ] Cover all six Gaokao subjects (English, Chinese, Biology incoming)
-- [ ] Per-chapter permalink pages
+- [x] Per-chapter permalink pages
+- [x] Knowledge-point catalog with priority scoring
 - [ ] Search across chapters
 - [ ] English translation of on-site content
 
