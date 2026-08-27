@@ -19,7 +19,7 @@ var EXPLORE_CHAPTERS = [
     body: '铌酸锂：Li⁺ 与 NbO₃⁻ 阴阳离子相吸 → <strong>离子晶体</strong>；SiC：原子间共价网状结合 → 原子晶体。合金硬度通常<strong>大于</strong>纯金属；He 是单原子分子——原子之间<strong>没有化学键</strong>。',
     dataItems: [
       { value: 'LiNbO₃', label: '离子晶体（含离子键）' },
-      { value: 'SiC', label: '原子晶体·高温结构陶瓧' },
+      { value: 'SiC', label: '原子晶体·高温结构陶瓷' },
       { value: 'He', label: '无化学键的单原子分子' }
     ],
     accentHue: 285
