@@ -9,19 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Per-chapter publish gating: `content.js` chapters now support `published` (bool) + `xhsUrl` (Xiaohongshu post link)
-  - **Published** chapters show full body + a "🎬 观看视频讲解 →" button linking to the chapter's `xhsUrl`
-  - **Unpublished** chapters show a one-sentence summary only + a "📅 即将上线 · 关注小红书抢先看 →" CTA to the XHS profile, with an "未发布" badge — content no longer leaks before going live
-- Featured banner now reflects publish state: unpublished latest chapter shows "📅 待发布" prefix + "即将上线" badge instead of "已核对"
+- `content.js` chapter schema now supports optional `xhsUrl` (per-chapter Xiaohongshu post link) reserved for future use
+- index.html 补 `<meta name="theme-color">` + `<meta name="color-scheme">`，移动端浏览器 chrome 颜色自适应
 
 ### Fixed
 
-- `render.js` summary extraction used `replace(/\s+/g, '')` which collapsed Chinese+English word boundaries (e.g. `Cu + 2H₂SO₄` → `Cu+2H₂SO₄`); now preserves inter-word spaces with `replace(/\s+/g, ' ')`
-- Removed duplicate comment block in `style.css` (知识探索 section header was declared twice)
-- Added `<meta name="theme-color">` + `<meta name="color-scheme">` to `index.html` for correct mobile browser chrome coloring
-- Chapter titles lost their accent-colored emphasis: `rich()` sanitizer stripped `<span class="em">` — now whitelisted (attribute-carrying spans still stripped)
-- Mobile hamburger button was invisible (spans had zero size) — proper styles added, plus `aria-expanded` state
-- Bilingual README chapter tables had Date/Chapter columns swapped
+- `render.js` banner `.hb-dek` / `.hb-title` 用 `replace(/\s+/g, '')` 全量清空格导致中英公式粘连（`Cu + 2H₂SO₄` → `Cu+2H₂SO₄`）；改为 `replace(/\s+/g, ' ').trim()` 保留单词边界
+- `style.css` 重复「知识探索」注释块去重
+- 所有章节正文**直接全文显示**（移除了之前的发布状态摘要隐藏逻辑，恢复原有全文展示）
 
 ### Changed
 
