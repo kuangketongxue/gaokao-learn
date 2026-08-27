@@ -8,6 +8,8 @@
 //   body      : 正文段落，可含 <strong> 强调
 //   dataItems : 底部 3 个要点卡 [{value, label}]
 //   accentHue : 本章主题色相 0-360（橙35/蓝200/绿150/黄45/紫285/红12…）
+//   published : 是否已发到小红书（true=已发布显全文+视频链；false=未发仅显摘要）
+//   xhsUrl    : 小红书对应帖子链接（published=true 时必填，底部"观看视频讲解"按钮跳转）
 // ============================================================
 
 var EXPLORE_CHAPTERS = [
@@ -22,7 +24,9 @@ var EXPLORE_CHAPTERS = [
       { value: 'SiC', label: '原子晶体·高温结构陶瓷' },
       { value: 'He', label: '无化学键的单原子分子' }
     ],
-    accentHue: 285
+    accentHue: 285,
+    published: false,
+    xhsUrl: ''
   },
   {
     id: '02',
@@ -35,7 +39,9 @@ var EXPLORE_CHAPTERS = [
       { value: '蒸发 + 冷凝', label: '蒸馏两步走' },
       { value: '留瓶中', label: '干燥剂·高沸点杂质' }
     ],
-    accentHue: 12
+    accentHue: 12,
+    published: false,
+    xhsUrl: ''
   },
   {
     id: '03',
@@ -48,7 +54,9 @@ var EXPLORE_CHAPTERS = [
       { value: '生物可降解', label: '餐具选材依据' },
       { value: 'CO₂ + H₂O', label: '最终降解产物' }
     ],
-    accentHue: 130
+    accentHue: 130,
+    published: false,
+    xhsUrl: ''
   },
   {
     id: '04',
@@ -61,6 +69,8 @@ var EXPLORE_CHAPTERS = [
       { value: 'SO₂→SO₄²⁻', label: '硫升价·表现还原性' },
       { value: '紫色褪去', label: 'MnO₄⁻ 被 SO₂ 还原' }
     ],
-    accentHue: 55
+    accentHue: 55,
+    published: false,
+    xhsUrl: ''
   }
 ];

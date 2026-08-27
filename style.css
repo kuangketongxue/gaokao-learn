@@ -831,9 +831,6 @@ a:hover { color: var(--ember); }
 }
 
 
-/* ═══════════════════════════════════════════════════════════════
-   知识探索 · 滚动式叙事（Aston Martin Valhalla 风格）
-   ═══════════════════════════════════════════════════════════════ */
 /* ============================================================
    知识探索 · 滚动式叙事（Aston Martin Valhalla 风格）
    ============================================================ */
@@ -1195,4 +1192,70 @@ a:hover { color: var(--ember); }
   .exp-scroll-hint,
   .exp-ch-progress { display: none; }
   .exp-bg { inset: -30px; }
+}
+
+/* ---- 发布状态：未发布遮罩 + 摘要 + 底部 CTA ---- */
+.exp-chapter.unpublished .exp-ch-body {
+  color: var(--muted);
+}
+
+.exp-ch-more {
+  color: var(--accent);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* 未发布徽章 */
+.exp-ch-badge {
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: #ffd27d;
+  border: 1px solid rgba(255,210,125,.4);
+  border-radius: 999px;
+  padding: 3px 10px;
+  opacity: .9;
+}
+
+/* 章节底部 CTA：视频讲解 / 即将上线 */
+.exp-ch-foot {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 22px 12px;
+}
+
+.exp-ch-video,
+.exp-ch-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .12s ease, filter .12s ease, border-color .15s;
+  cursor: pointer;
+}
+
+.exp-ch-video {
+  background: hsl(var(--accent-hue, 35), 70%, 55%);
+  color: #1a1625;
+  box-shadow: 0 6px 18px hsla(var(--accent-hue, 35), 70%, 55%, .3);
+}
+.exp-ch-video:hover { transform: translateY(-1px); filter: brightness(1.08); }
+
+.exp-ch-soon {
+  background: transparent;
+  border: 1px solid var(--line-2);
+  color: var(--ink-2);
+}
+.exp-ch-soon:hover { border-color: var(--ember); color: var(--ember); }
+
+@media (max-width: 640px) {
+  .exp-ch-foot { padding: 0 18px 8px; }
+  .exp-ch-video,
+  .exp-ch-soon { font-size: 13px; padding: 9px 16px; }
 }
