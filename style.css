@@ -1,40 +1,43 @@
 /* ============================================================
    高考知识点精讲 · 官网样式
-   设计参考：best.xiaohu.ai + 用户提供的 Logo/封面（Low-Poly 几何风）
-   核心视觉：深色背景、紫金配色、几何化元素
+   设计概念：化学实验报告 — 墨绿实验室台面 + 试剂色 + 教辅宋体
+   签名元素：试剂瓶章节号 / 试管观察记录卡
    ============================================================ */
 
 :root {
-  /* 深色背景系统 */
-  --bg: #1a1625;
-  --bg-soft: #231f30;
-  --surface: #2a2535;
-  --surface-2: #332d40;
-  
-  /* 文字色阶 */
-  --ink: #f4f1ea;
-  --ink-2: #c4bfb3;
-  --muted: #9a9490;
-  
+  /* 深色背景系统：墨绿实验室黑（实验台面） */
+  --bg: #0f1512;
+  --bg-soft: #16201b;
+  --surface: #1c2822;
+  --surface-2: #233129;
+
+  /* 文字色阶：偏绿的纸白 */
+  --ink: #eef0e6;
+  --ink-2: #b6bca8;
+  --muted: #8a927f;
+
   /* 线条与阴影 */
-  --line: #3d3648;
-  --line-2: #4d4558;
+  --line: #2b3a31;
+  --line-2: #3c4f43;
   --shadow: 0 1px 2px rgba(0,0,0,.2), 0 10px 26px -12px rgba(0,0,0,.4);
   --shadow-lg: 0 2px 4px rgba(0,0,0,.25), 0 24px 50px -18px rgba(0,0,0,.5);
-  
-  /* 品牌色：紫金体系（来自封面/Logo） */
-  --ember: #d4a843;
-  --ember-soft: rgba(212,168,67,.15);
-  --accent: #9b6dff;
-  --accent-soft: rgba(155,109,255,.15);
-  
+
+  /* 品牌色：试剂蓝 + 碘液金 */
+  --ember: #d8a54a;
+  --ember-soft: rgba(216,165,74,.15);
+  --accent: #4f9dde;
+  --accent-soft: rgba(79,157,222,.15);
+
   /* 功能色 */
   --verify: #5db487;
   --verify-soft: rgba(93,180,135,.15);
-  
+
   /* 圆角与尺寸 */
-  --radius: 14px;
+  --radius: 10px;
   --maxw: 1200px;
+
+  /* 教辅宋体：标题用 */
+  --font-display: "Songti SC","STSong","SimSun","Noto Serif SC",Georgia,"PingFang SC","Microsoft YaHei",serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -946,18 +949,36 @@ a:hover { color: var(--ember); }
   opacity: .85;
 }
 
+/* ---- 试剂瓶编号（签名元素） ---- */
+.reagent-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  padding: 2px 9px;
+  border: 1px solid hsl(var(--reagent-hue, 200), 65%, 55%);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: hsl(var(--reagent-hue, 200), 65%, 55%);
+  background: hsla(var(--reagent-hue, 200), 65%, 55%, .06);
+  letter-spacing: .04em;
+}
+
 .exp-chapter.in .exp-ch-label {
   opacity: 1;
   transform: none;
   transition-delay: .12s;
 }
 
-/* ---- 标题：缩小模糊→聚焦 ---- */
+/* ---- 标题：缩小模糊→聚焦（宋体教辅感） ---- */
 .exp-ch-title {
   font-size: clamp(32px, 5.5vw, 68px);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -.025em;
+  line-height: 1.12;
+  letter-spacing: .02em;
+  font-family: var(--font-display);
   color: #fff;
   max-width: 800px;
   margin-bottom: 28px;
@@ -1188,16 +1209,74 @@ a:hover { color: var(--ember); }
 .exp-article {
   position: relative;
   min-height: 100vh;
+  animation: artIn .6s cubic-bezier(.2,.7,.2,1) .05s backwards;
 }
+@keyframes artIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 独立页背景：立刻可见（不依赖 .in 类） */
+.exp-article .exp-bg {
+  opacity: 1;
+  filter: blur(0) brightness(.55);
+  transform: scale(1.05);
+}
+
 .exp-article .exp-inner {
-  padding: 72px 22px 40px;
-  max-width: 760px;
+  padding: 88px 22px 48px;
+  max-width: 820px;
+}
+
+/* 独立页标题入场 */
+.exp-article .exp-ch-title {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  animation: titleIn .9s cubic-bezier(.2,.7,.2,1) .18s backwards;
+}
+@keyframes titleIn {
+  from { opacity: 0; transform: scale(.92); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* 正文入场 */
+.exp-article .exp-ch-body-wrap {
+  animation: bodyIn .8s cubic-bezier(.2,.7,.2,1) .42s backwards;
+}
+@keyframes bodyIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 试管观察记录卡 */
+.exp-article .exp-data {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 22px 56px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
 }
 .exp-article .exp-d-item {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid hsla(var(--accent-hue, 200), 45%, 55%, .35);
+  border-right: 1px solid var(--line);
+  padding: 24px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 1;
+  transform: none;
 }
-.exp-article .exp-data {
-  padding: 32px 22px 80px;
+.exp-article .exp-d-item:last-child { border-right: none; }
+
+/* 试管（小色块指示章节色） */
+.exp-tube {
+  width: 8px;
+  height: 32px;
+  border-radius: 4px;
+  background: hsla(var(--accent-hue, 200), 55%, 50%, .22);
+  border: 1px solid hsla(var(--accent-hue, 200), 65%, 55%, .45);
+  margin-bottom: 4px;
 }
 
 /* 正文区域 */
@@ -1217,75 +1296,66 @@ a:hover { color: var(--ember); }
   gap: 4px;
   font-size: 13px;
   color: var(--muted);
-  margin-right: 14px;
+  margin-bottom: 22px;
   transition: color .15s;
 }
 .back-link:hover { color: var(--ember); }
 
-/* ---- 发布状态：未发布遮罩 + 摘要 + 底部 CTA ---- */
-.exp-chapter.unpublished .exp-ch-body {
-  color: var(--muted);
-}
-
-.exp-ch-more {
-  color: var(--accent);
-  font-weight: 700;
-  margin-left: 2px;
-}
-
-/* 未发布徽章 */
-.exp-ch-badge {
-  font-size: 10px;
-  letter-spacing: .1em;
-  color: #ffd27d;
-  border: 1px solid rgba(255,210,125,.4);
-  border-radius: 999px;
-  padding: 3px 10px;
-  opacity: .9;
-}
-
-/* 章节底部 CTA：视频讲解 / 即将上线 */
-.exp-ch-foot {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
+/* ---- 上一篇 / 下一篇 导航 ---- */
+.art-nav {
+  max-width: 820px;
   margin: 0 auto;
-  padding: 0 22px 12px;
+  padding: 24px 22px 72px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
 }
-
-.exp-ch-video,
-.exp-ch-soon {
+.art-nav a {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 22px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
+  gap: 10px;
   text-decoration: none;
-  transition: transform .12s ease, filter .12s ease, border-color .15s;
-  cursor: pointer;
-}
-
-.exp-ch-video {
-  background: hsl(var(--accent-hue, 35), 70%, 55%);
-  color: #1a1625;
-  box-shadow: 0 6px 18px hsla(var(--accent-hue, 35), 70%, 55%, .3);
-}
-.exp-ch-video:hover { transform: translateY(-1px); filter: brightness(1.08); }
-
-.exp-ch-soon {
-  background: transparent;
-  border: 1px solid var(--line-2);
   color: var(--ink-2);
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color .15s, transform .12s, background .15s;
+  max-width: 46%;
 }
-.exp-ch-soon:hover { border-color: var(--ember); color: var(--ember); }
+.art-nav a:hover {
+  border-color: hsl(var(--accent-hue, 200), 65%, 55%);
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+.art-nav-next { margin-left: auto; }
+.art-nav-arrow {
+  font-size: 16px;
+  color: var(--ember);
+  flex-shrink: 0;
+}
+.art-nav-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.art-nav-lbl {
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.art-nav-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.art-nav > span:empty { display: none; }
 
 @media (max-width: 640px) {
-  .exp-ch-foot { padding: 0 18px 8px; }
-  .exp-ch-video,
-  .exp-ch-soon { font-size: 13px; padding: 9px 16px; }
+  .art-nav { flex-direction: column; }
+  .art-nav a { max-width: 100%; }
+  .art-nav-next { margin-left: 0; }
 }
 
 /* ---- 640px 响应式 ---- */
