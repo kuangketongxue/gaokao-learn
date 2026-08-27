@@ -62,5 +62,44 @@ var EXPLORE_CHAPTERS = [
       { value: '紫色褪去', label: 'MnO₄⁻ 被 SO₂ 还原' }
     ],
     accentHue: 55
+  },
+  {
+    id: '05',
+    date: '2026-08-27',
+    category: '机械能守恒 · 物理',
+    title: '只有重力弹力做功，<br><span class="em">机械能</span>不变。',
+    body: '在只有<strong>重力或弹力</strong>做功的物体系统内，动能与势能可以相互转化，而总的机械能保持不变。<br>判断关键看「有没有非保守力做功」——摩擦力、空气阻力做功会消耗机械能，机械能就不守恒。',
+    dataItems: [
+      { value: 'E机 = 常量', label: '机械能守恒条件' },
+      { value: '动能 ⇌ 势能', label: '两者相互转化' },
+      { value: '无非保守力', label: '摩擦/空气阻力不可做功' }
+    ],
+    accentHue: 200
+  },
+  {
+    id: '06',
+    date: '2026-08-27',
+    category: '天体运动 · 物理',
+    title: '绕同一天体：<br><span class="em">高轨低速</span>大周期。',
+    body: '绕同一中心天体（地球）的所有卫星：轨道越高，线速度 v 越<strong>小</strong>、角速度 ω 越<strong>小</strong>、周期 T 越<strong>大</strong>。<br>赤道上随地球自转的地面物体，与同步卫星<strong>周期 T、角速度 ω 相同</strong>——因为同 ω，故 v=ωr、a=ω²r（r 不同所以 v、a 不同）。',
+    dataItems: [
+      { value: '高轨', label: 'v小·ω小·T大' },
+      { value: 'v = ωr', label: '同 ω 系统的线速度' },
+      { value: 'a = ω²r', label: '同 ω 系统的向心加速度' }
+    ],
+    accentHue: 175
+  },
+  {
+    id: '07',
+    date: '2026-08-27',
+    category: '宇宙速度 · 物理',
+    title: '近地卫星的速度，<br>是<span class="em">第一宇宙速度</span>。',
+    body: '近地卫星的环绕速度（贴近地表做圆周运动的速度）即<strong>第一宇宙速度</strong>，约 <strong>7.9 km/s</strong>。<br>它是人造卫星的最小发射速度，也是最大的环绕速度——轨道越高，环绕速度反而越小。',
+    dataItems: [
+      { value: '7.9 km/s', label: '第一宇宙速度' },
+      { value: '最小发射', label: '能上天的最小速度' },
+      { value: '最大环绕', label: '近地轨道环绕最快' }
+    ],
+    accentHue: 260
   }
 ];
