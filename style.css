@@ -1377,3 +1377,148 @@ a:hover { color: var(--ember); }
   .exp-chapter-link .exp-ch-progress { display: none; }
   .exp-bg { inset: -30px; }
 }
+
+/* ============================================================
+   知识点目录（首页顶部，按学科分组，锚点跳转到对应章节卡）
+   化学实验报告风：卡片 + 左色条 + 试剂瓶编号胶囊
+   ============================================================ */
+.toc-card {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 28px;
+  padding: 22px 24px 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.toc-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.toc-ico { font-size: 20px; line-height: 1; }
+.toc-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+.toc-count {
+  margin-left: auto;
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+
+/* 学科组：左色条 */
+.toc-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0 10px 14px;
+  margin-bottom: 6px;
+  border-left: 2px solid hsl(var(--g-hue, 35), 65%, 55%);
+}
+.toc-group:last-child { margin-bottom: 4px; }
+.toc-subject {
+  flex-shrink: 0;
+  min-width: 42px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: hsl(var(--g-hue, 35), 65%, 62%);
+  text-align: center;
+}
+
+.toc-items {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.toc-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg-soft);
+  transition: border-color .15s, color .15s, background .15s, transform .12s;
+}
+.toc-item:hover {
+  border-color: hsl(var(--g-hue, 35), 65%, 55%);
+  color: var(--ink);
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+.toc-num {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: hsl(var(--g-hue, 35), 65%, 60%);
+  background: hsla(var(--g-hue, 35), 65%, 60%, .1);
+}
+.toc-item-title { color: inherit; }
+
+@media (max-width: 640px) {
+  .toc-card { margin: 0 -2px 20px; border-radius: 0; border-left: none; border-right: none; padding: 18px 16px 6px; }
+  .toc-group { gap: 10px; padding-left: 12px; }
+  .toc-items { gap: 4px 6px; }
+  .toc-item { font-size: 12px; padding: 3px 8px; }
+}
+
+/* ---- 优先级分（1~100） ---- */
+/* 目录条目：名次 + 分值 */
+.toc-rank {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 12px;
+  text-align: right;
+}
+.toc-score {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--ember);
+  background: var(--ember-soft);
+}
+/* 章节卡 / 独立页：分数徽章（化学实验报告风） */
+.exp-ch-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid hsl(var(--reagent-hue, 200), 65%, 55%);
+  color: hsl(var(--reagent-hue, 200), 65%, 62%);
+  background: hsla(var(--reagent-hue, 200), 65%, 55%, .07);
+  opacity: .95;
+}
+.exp-ch-score .mono { font-size: 12px; }
+/* 高分高亮（≥90 用碘金 + 微光） */
+.exp-ch-score[style*="--score:95"],
+.exp-ch-score[style*="--score:9"] {
+  color: var(--ember);
+  border-color: var(--ember);
+  background: var(--ember-soft);
+  box-shadow: 0 0 0 1px rgba(216,165,74,.25);
+}

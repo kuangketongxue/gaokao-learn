@@ -22,7 +22,8 @@ var EXPLORE_CHAPTERS = [
       { value: 'SiC', label: '原子晶体·高温结构陶瓷' },
       { value: 'He', label: '无化学键的单原子分子' }
     ],
-    accentHue: 285
+    accentHue: 285,
+    score: 92
   },
   {
     id: '02',
@@ -35,7 +36,8 @@ var EXPLORE_CHAPTERS = [
       { value: '蒸发 + 冷凝', label: '蒸馏两步走' },
       { value: '留瓶中', label: '干燥剂·高沸点杂质' }
     ],
-    accentHue: 12
+    accentHue: 12,
+    score: 78
   },
   {
     id: '03',
@@ -48,7 +50,8 @@ var EXPLORE_CHAPTERS = [
       { value: '生物可降解', label: '餐具选材依据' },
       { value: 'CO₂ + H₂O', label: '最终降解产物' }
     ],
-    accentHue: 130
+    accentHue: 130,
+    score: 60
   },
   {
     id: '04',
@@ -61,7 +64,8 @@ var EXPLORE_CHAPTERS = [
       { value: 'SO₂→SO₄²⁻', label: '硫升价·表现还原性' },
       { value: '紫色褪去', label: 'MnO₄⁻ 被 SO₂ 还原' }
     ],
-    accentHue: 55
+    accentHue: 55,
+    score: 88
   },
   {
     id: '05',
@@ -74,7 +78,8 @@ var EXPLORE_CHAPTERS = [
       { value: '动能 ⇌ 势能', label: '两者相互转化' },
       { value: '无非保守力', label: '摩擦/空气阻力不可做功' }
     ],
-    accentHue: 200
+    accentHue: 200,
+    score: 95
   },
   {
     id: '06',
@@ -87,7 +92,8 @@ var EXPLORE_CHAPTERS = [
       { value: 'v = ωr', label: '同 ω 系统的线速度' },
       { value: 'a = ω²r', label: '同 ω 系统的向心加速度' }
     ],
-    accentHue: 175
+    accentHue: 175,
+    score: 85
   },
   {
     id: '07',
@@ -100,6 +106,7 @@ var EXPLORE_CHAPTERS = [
       { value: '最小发射', label: '能上天的最小速度' },
       { value: '最大环绕', label: '近地轨道环绕最快' }
     ],
-    accentHue: 260
+    accentHue: 260,
+    score: 82
   }
 ];

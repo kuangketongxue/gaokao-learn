@@ -51,7 +51,84 @@
   if (m) {
     renderStandalone(m[1]);
   } else {
+    renderToc();
     renderList();
+  }
+
+  // 取学科：category 形如 "物质分类 · 化学"，取 · 后半段；无 · 则整段
+  function subjectOf(category) {
+    var s = String(category || '');
+    var i = s.indexOf('·');
+    return (i >= 0 ? s.slice(i + 1) : s).trim();
+  }
+
+  // 取纯文本标题（去标签，限长）
+  function shortTitle(s, n) {
+    var t = String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    return t.length > n ? t.slice(0, n - 1) + '…' : t;
+  }
+
+  // 优先级分（1~100，越大越值得优先搞懂）
+  function scoreOf(ch) { return Number(ch.score || 0); }
+
+  // A 方案：首页按分值降序排，同分按发布日期降序（新在前）
+  function sortedChapters() {
+    var a = EXPLORE_CHAPTERS.slice();
+    a.sort(function (a, b) {
+      var d = scoreOf(b) - scoreOf(a);
+      if (d !== 0) return d;
+      var da = String(a.date || '0').slice(0, 10), db = String(b.date || '0').slice(0, 10);
+      return db > da ? 1 : -1;
+    });
+    return a;
+  }
+
+  // 分数徽章：化学实验报告风，用章节色
+  function scoreBadge(ch) {
+    var s = scoreOf(ch);
+    if (!s) return '';
+    var pct = Math.min(100, Math.max(0, s));
+    return '<span class="exp-ch-score" style="--score:' + pct + ';--reagent-hue:' + Number(ch.accentHue || 35) + '">' +
+      '<span class="mono">' + s + '</span><span>分</span></span>';
+  }
+
+  // 首页：渲染知识点目录（按学科分组，点击锚点跳转）
+  function renderToc() {
+    var mount = document.getElementById('tocMount');
+    if (!mount || typeof EXPLORE_CHAPTERS === 'undefined' || !EXPLORE_CHAPTERS.length) return;
+
+    // 按学科分组，保序去重
+    var groups = [];
+    var seen = {};
+    EXPLORE_CHAPTERS.forEach(function (ch) {
+      var sub = subjectOf(ch.category);
+      if (!seen[sub]) { seen[sub] = true; groups.push({ subject: sub, items: [] }); }
+      groups[groups.length - 1].items.push(ch);
+    });
+
+    // 每组内按分值降序排
+    groups.forEach(function (g) {
+      g.items.sort(function (a, b) { return scoreOf(b) - scoreOf(a); });
+    });
+
+    mount.innerHTML = '<div class="toc-card">' +
+      '<div class="toc-head"><span class="toc-ico">📚</span><h2 class="toc-title mono">知识点目录</h2><span class="toc-count mono">' + EXPLORE_CHAPTERS.length + ' 章 · 按优先级</span></div>' +
+      groups.map(function (g) {
+        return '<div class="toc-group" style="--g-hue:' + Number(g.items[0].accentHue || 35) + '">' +
+          '<div class="toc-subject mono">' + esc(g.subject) + '</div>' +
+          '<div class="toc-items">' +
+            g.items.map(function (ch, i) {
+              return '<a class="toc-item" href="#ch-' + esc(ch.id) + '" data-ch="' + esc(ch.id) + '">' +
+                '<span class="toc-rank mono">' + (i + 1) + '</span>' +
+                '<span class="toc-num mono">' + esc(ch.id) + '</span>' +
+                '<span class="toc-item-title">' + shortTitle(ch.title, 16) + '</span>' +
+                (scoreOf(ch) ? '<span class="toc-score mono">' + scoreOf(ch) + '</span>' : '') +
+              '</a>';
+            }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('') +
+    '</div>';
   }
 
   // 首页：渲染章节卡片列表
@@ -59,16 +136,17 @@
     var mount = document.getElementById('exploreMount');
     if (!mount || typeof EXPLORE_CHAPTERS === 'undefined' || !EXPLORE_CHAPTERS.length) return;
 
-    mount.innerHTML = EXPLORE_CHAPTERS.map(function (ch) {
+    mount.innerHTML = sortedChapters().map(function (ch) {
       // 每张卡片包 <a href="/ch/{id}/"> 跳转到独立页
       return '<a class="exp-chapter-link" href="/ch/' + esc(ch.id) + '/">' +
-        '<div class="exp-chapter" data-chapter="' + esc(ch.id) + '" style="--accent-hue:' + Number(ch.accentHue || 35) + '">' +
+        '<div class="exp-chapter" id="ch-' + esc(ch.id) + '" data-chapter="' + esc(ch.id) + '" style="--accent-hue:' + Number(ch.accentHue || 35) + '">' +
           '<div class="exp-bg"><div class="exp-bg-gradient"></div></div>' +
           '<div class="exp-inner">' +
             '<div class="exp-ch-label mono">' +
               reagentNum(ch.id, ch.accentHue) +
               '<span class="exp-ch-cat">' + esc(ch.category) + '</span>' +
               (ch.date ? '<span class="exp-ch-date mono">📅 ' + esc(ch.date) + '</span>' : '') +
+              scoreBadge(ch) +
             '</div>' +
             '<h2 class="exp-ch-title">' + rich(ch.title) + '</h2>' +
             '<div class="exp-body-wrap"><p class="exp-ch-body">' + rich(ch.body) + '</p></div>' +
@@ -121,6 +199,7 @@
               reagentNum(ch.id, ch.accentHue) +
               '<span class="exp-ch-cat">' + esc(ch.category) + '</span>' +
               (ch.date ? '<span class="exp-ch-date mono">📅 ' + esc(ch.date) + '</span>' : '') +
+              scoreBadge(ch) +
             '</div>' +
             '<h1 class="exp-ch-title">' + rich(ch.title) + '</h1>' +
             '<div class="exp-ch-body-wrap">' + rich(ch.body) + '</div>' +
