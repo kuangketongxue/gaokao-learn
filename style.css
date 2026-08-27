@@ -531,9 +531,9 @@ a:hover { color: var(--ember); }
   min-height: 336px;
   text-decoration: none;
   color: #fff;
-  background: linear-gradient(150deg, 
-    color-mix(in srgb, var(--ember) 32%, #1c1b22), 
-    color-mix(in srgb, var(--ember) 12%, #15141a) 72%);
+  background: linear-gradient(150deg,
+    color-mix(in srgb, var(--tint, var(--ember)) 32%, #1c1b22),
+    color-mix(in srgb, var(--tint, var(--ember)) 12%, #15141a) 72%);
   transition: transform .18s, box-shadow .2s;
   margin-bottom: 18px;
 }
