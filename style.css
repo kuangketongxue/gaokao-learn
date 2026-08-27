@@ -783,8 +783,8 @@ a:hover { color: var(--ember); }
 
 .dark .home-banner {
   background: linear-gradient(150deg,
-    color-mix(in srgb, var(--ember) 32%, #1c1b22),
-    color-mix(in srgb, var(--ember) 12%, #15141a) 72%);
+    color-mix(in srgb, var(--tint, var(--ember)) 32%, #1c1b22),
+    color-mix(in srgb, var(--tint, var(--ember)) 12%, #15141a) 72%);
 }
 
 .dark .cta-band {
