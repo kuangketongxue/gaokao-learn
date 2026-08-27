@@ -1173,26 +1173,54 @@ a:hover { color: var(--ember); }
   margin-bottom: 32px;
 }
 
-/* ---- 响应式 ---- */
-@media (max-width: 640px) {
-  .exp-chapter {
-    min-height: 90vh;
-  }
-  .exp-inner {
-    padding: 56px 18px 20px;
-  }
-  .exp-data {
-    grid-template-columns: 1fr;
-    padding: 32px 18px 60px;
-  }
-  .exp-d-item {
-    padding: 20px 18px;
-    border-top: 1px solid var(--line);
-  }
-  .exp-scroll-hint,
-  .exp-ch-progress { display: none; }
-  .exp-bg { inset: -30px; }
+/* ---- 知识探索卡片包裹链接 ---- */
+.exp-chapter-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
+.exp-chapter-link:hover .exp-bg {
+  opacity: .55;
+}
+
+
+/* ---- 独立章节页（/ch/{id}） ---- */
+.exp-article {
+  position: relative;
+  min-height: 100vh;
+}
+.exp-article .exp-inner {
+  padding: 72px 22px 40px;
+  max-width: 760px;
+}
+.exp-article .exp-d-item {
+  border-top: 1px solid var(--line);
+}
+.exp-article .exp-data {
+  padding: 32px 22px 80px;
+}
+
+/* 正文区域 */
+.exp-ch-body-wrap {
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.9;
+  color: var(--ink-2);
+  max-width: 560px;
+}
+.exp-ch-body-wrap strong { color: var(--ink); font-weight: 600; }
+.exp-ch-body-wrap em { font-style: italic; opacity: .9; }
+
+/* 返回首页链接 */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-right: 14px;
+  transition: color .15s;
+}
+.back-link:hover { color: var(--ember); }
 
 /* ---- 发布状态：未发布遮罩 + 摘要 + 底部 CTA ---- */
 .exp-chapter.unpublished .exp-ch-body {
@@ -1258,4 +1286,24 @@ a:hover { color: var(--ember); }
   .exp-ch-foot { padding: 0 18px 8px; }
   .exp-ch-video,
   .exp-ch-soon { font-size: 13px; padding: 9px 16px; }
+}
+
+/* ---- 640px 响应式 ---- */
+@media (max-width: 640px) {
+  .exp-chapter {
+    min-height: 90vh;
+  }
+  .exp-inner {
+    padding: 56px 18px 20px;
+  }
+  .exp-data {
+    grid-template-columns: 1fr;
+    padding: 32px 18px 60px;
+  }
+  .exp-d-item {
+    padding: 20px 18px;
+    border-top: 1px solid var(--line);
+  }
+  .exp-chapter-link .exp-ch-progress { display: none; }
+  .exp-bg { inset: -30px; }
 }

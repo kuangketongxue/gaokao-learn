@@ -9,14 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `content.js` chapter schema now supports optional `xhsUrl` (per-chapter Xiaohongshu post link) reserved for future use
-- index.html 补 `<meta name="theme-color">` + `<meta name="color-scheme">`，移动端浏览器 chrome 颜色自适应
+- **Per-article pages**: each chapter now has a standalone URL (`/ch/{id}/`), e.g. `/ch/01/`. The homepage renders clickable chapter cards (`<a href="/ch/{id}/">`); visiting `/ch/{id}/` shows the full article (title + body + data panel + back-to-home link). Routing is handled client-side by `render.js` (URL-pattern matching + `main.innerHTML` swap); Cloudflare Pages default SPA fallback routes `/ch/*` to `index.html`.
+- `render.js` dynamically updates `document.title` on standalone pages (SEO benefit)
+- index.html: added `<meta name="theme-color">` + `<meta name="color-scheme">` for correct mobile browser chrome
+- index.html: `<section class="exp-section">` wraps the chapter list for semantics
+
+### Changed
+
+- `render.js`: refactored into `renderList()` (homepage grid of chapter cards) + `renderStandalone(id)` (single-article page); removed `chapterHTML()` and the old `.outerHTML` wholesale-replace pattern
+- `content.js`: no data changes — `EXPLORE_CHAPTERS` remains the single source of truth
+- `style.css`: `.exp-chapter-link` wraps cards (clickable → `/ch/{id}/`); added `.exp-article`, `.exp-ch-body-wrap`, `.back-link` styles for standalone pages; moved 640px media query to avoid duplicate definitions
 
 ### Fixed
 
-- `render.js` banner `.hb-dek` / `.hb-title` 用 `replace(/\s+/g, '')` 全量清空格导致中英公式粘连（`Cu + 2H₂SO₄` → `Cu+2H₂SO₄`）；改为 `replace(/\s+/g, ' ').trim()` 保留单词边界
-- `style.css` 重复「知识探索」注释块去重
-- 所有章节正文**直接全文显示**（移除了之前的发布状态摘要隐藏逻辑，恢复原有全文展示）
+- Removed duplicate comment block in `style.css` (知识探索 header was declared twice)
+- `dek` extraction: `replace(/\s+/g, '')` → `replace(/\s+/g, ' ').trim()` to preserve word boundaries between Chinese and English formulas
 
 ### Changed
 
